@@ -129,19 +129,24 @@ function animateProgressBar(element) {
 // Set up IntersectionObserver for #animated-section
 const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-        const section = entry.target;
+        if (entry.isIntersecting) {
+            const section = entry.target;
 
-        // Animate numbers and progress bar within the section
-        section.querySelectorAll(".animate-number-up").forEach(animateNumberUp);
-        section.querySelectorAll(".animate-number-down").forEach(animateNumberDown);
-        section.querySelectorAll(".animate-progress-bar").forEach(animateProgressBar);
+            // Animate numbers and progress bar within the section
+            section.querySelectorAll(".animate-number-up").forEach(animateNumberUp);
+            section.querySelectorAll(".animate-number-down").forEach(animateNumberDown);
+            section.querySelectorAll(".animate-progress-bar").forEach(animateProgressBar);
 
-        // Stop observing the section
-        observer.unobserve(section);
-    }
+            // Stop observing the section
+            observer.unobserve(section);
+        }
     });
-});
+    },
+    {
+        root: null,
+        threshold: 0.5
+    }
+);
 
 // Start observing #animated-section
 const animatedSection = document.getElementById("animated-section");
