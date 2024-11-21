@@ -362,7 +362,7 @@ label {
 
 .backed-container__progress {
     border-radius: 20px;
-    width: 75%;
+    width: 0;
     background-color: var(--moderate-cyan);
     height: 0.75rem;
 }
